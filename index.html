@@ -2,46 +2,23 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | webMemorice2</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Altura completa de la ventana */
-        margin: 0; /* Sin márgenes */
-        background: #231F20; /* Fondo igual al del canvas */
-        overflow: hidden; /* Evitar el desplazamiento */
-      }
-
-      #unity-canvas {
-        width: 100vw; /* Ancho del canvas igual al ancho de la ventana */
-        height: 100vh; /* Alto del canvas igual a la altura de la ventana */
-      }
-
-      @media (min-aspect-ratio: 9/16) { /* Para pantallas más anchas */
-        #unity-canvas {
-          width: auto; /* Ancho automático */
-          height: auto; /* Alto automático */
-          max-width: 100%; /* Máximo ancho del canvas */
-          max-height: 100%; /* Máximo alto del canvas */
-        }
-      }
-    </style>
   </head>
-  <body>
-    <canvas id="unity-canvas" width="1080" height="1920"></canvas>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1080 height=1920 style="width: 1080px; height: 1920px; background: #231F20"></canvas>
     <script src="Build/WebGame.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
-        meta.content = 'width=1080, height=1920, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
 
         var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "1080px"; // Ancho fijo en dispositivos móviles
-        canvas.style.height = "1920px"; // Alto fijo en dispositivos móviles
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
         canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
@@ -55,10 +32,9 @@
         companyName: "DefaultCompany",
         productName: "webMemorice2",
         productVersion: "1.0",
-        // matchWebGLToCanvasSize: false, // Puedes descomentar esto para controlar el tamaño de renderizado por separado.
-        // devicePixelRatio: 1, // Descomentar esto si deseas ajustar la renderización en pantallas de alta DPI.
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
   </body>
 </html>
-

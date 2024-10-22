@@ -11,11 +11,21 @@
         height: 100vh; /* Altura completa de la ventana */
         margin: 0; /* Sin márgenes */
         background: #231F20; /* Fondo igual al del canvas */
+        overflow: hidden; /* Evitar el desplazamiento */
       }
 
       #unity-canvas {
-        width: 1080px; /* Ancho fijo */
-        height: 1920px; /* Alto fijo */
+        max-width: 100%; /* Ancho máximo del canvas */
+        max-height: 100%; /* Alto máximo del canvas */
+        width: auto; /* Auto para mantener la relación de aspecto */
+        height: auto; /* Auto para mantener la relación de aspecto */
+      }
+
+      @media (min-aspect-ratio: 9/16) { /* Para pantallas más anchas */
+        #unity-canvas {
+          width: 1080px; /* Ancho fijo para pantallas grandes */
+          height: 1920px; /* Alto fijo para pantallas grandes */
+        }
       }
     </style>
   </head>
@@ -30,8 +40,8 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
 
         var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
+        canvas.style.width = "100%"; // Se ajusta al ancho del dispositivo
+        canvas.style.height = "100%"; // Se ajusta a la altura del dispositivo
         canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";

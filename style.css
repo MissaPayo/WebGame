@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1960px) {
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: #231F20;
+}
+#unity-canvas {
+    width: 480px;
+    height: 100vh;
+    background: #231F20;
+} 
+}
+@media screen and (max-width: 1400px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        background-color: #231F20;
+    }
+    #unity-canvas {
+        width: 350px;
+        height: 100vh;
+        background: #231F20;
+    } 
+    }

@@ -3,9 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Unity WebGL Player | webMemorice2</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Altura completa de la ventana */
+        margin: 0; /* Sin márgenes */
+        background: #231F20; /* Fondo igual al del canvas */
+      }
+
+      #unity-canvas {
+        width: 1080px; /* Ancho fijo */
+        height: 1920px; /* Alto fijo */
+      }
+    </style>
   </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width="1080" height="1920" style="width: 100%; height: 100%; background: #231F20"></canvas>
+  <body>
+    <canvas id="unity-canvas" width="1080" height="1920"></canvas>
     <script src="Build/WebGame.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -15,9 +30,9 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
 
         var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%"; // Se ajusta al ancho del dispositivo
-        canvas.style.height = "100%"; // Se ajusta a la altura del dispositivo
-        canvas.style.position = "fixed"; // Fija la posición del canvas
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
       }
